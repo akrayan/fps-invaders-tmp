@@ -41,7 +41,7 @@ public class Weapons : MonoBehaviour
     {
         m_lastTimeShoot = Time.time - m_currentStats.coolDown;
         m_currentStats = m_initialStats;
-        onStatsChange.Invoke();
+        onStatsChange?.Invoke();
     }
 
     void Update()

@@ -12,13 +12,21 @@ public class Enemy : MonoBehaviour
 
     private Transform m_playerTransform;
     private Health m_health;
+    private HurtOnTouch m_hurt;
 
 
     void Start()
     {
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_health = GetComponent<Health>();
-        if(m_health) m_health.onDie += onDie;
+        if (m_health) m_health.onDie += onDie;
+
+        m_hurt = GetComponent<HurtOnTouch>();
+        if (m_hurt)
+        {
+            m_hurt.onHurt += DestroyHimself;
+            m_hurt.SetTarget("Player");
+        }
     }
 
     // Update is called once per frame
@@ -28,7 +36,7 @@ public class Enemy : MonoBehaviour
 
         transform.Translate(Vector3.forward * m_speed * Time.deltaTime);
     }
-
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -37,14 +45,14 @@ public class Enemy : MonoBehaviour
             InflictDamage(m_damages, other.gameObject);
             DestroyHimself();
         }
-    }
-
+    }*/
+    /*
     void InflictDamage(float damages, GameObject target)
     {
         Health targetHealth = target.GetComponentInParent<Health>();
 
         targetHealth?.TakeDamage(damages);
-    }
+    }*/
 
     void DestroyHimself()
     {

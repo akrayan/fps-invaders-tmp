@@ -6,16 +6,13 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float m_lifeTime = 5f;
 
-    private float m_bulletDamages = 0;
+    //private float m_bulletDamages = 0;
     private float m_bulletSpeed = 0;
     private bool isShooted = false;
-    private string m_targetTag = "";
+    //private string m_targetTag = "";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, m_lifeTime);
-    }
+    private HurtOnTouch m_hurt;
+
 
     // Update is called once per frame
     void Update()
@@ -23,7 +20,7 @@ public class Bullet : MonoBehaviour
         if (isShooted)
             transform.Translate(Vector3.forward * Time.deltaTime * m_bulletSpeed);
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == m_targetTag)
@@ -39,13 +36,25 @@ public class Bullet : MonoBehaviour
 
         if (targetHealth != null)
             targetHealth.TakeDamage(damages);
+    }*/
+
+    void DestroyHimself()
+    {
+        Destroy(gameObject);
     }
 
     public void Shoot(float bulletSpeed, float bulletDamages, string targetTag)
     {
         isShooted = true;
-        m_bulletDamages = bulletDamages;
+
+        m_hurt = GetComponent<HurtOnTouch>();
+        if (m_hurt) m_hurt.onHurt += DestroyHimself;
+        m_hurt?.SetDamages(bulletDamages);
+        m_hurt.SetTarget(targetTag);
+        //m_bulletDamages = bulletDamages;
         m_bulletSpeed = bulletSpeed;
-        m_targetTag = targetTag;
+        //m_targetTag = targetTag;
+        
+        Destroy(gameObject, m_lifeTime);
     }
 }
