@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private Enemy[] m_enemies;
+    //[SerializeField] private Enemy[] m_enemies;
     [SerializeField] private float m_spawnDistance = 100;
     [SerializeField] private float m_spawnFrequency = 2;
+    [SerializeField] RandomSelector m_spawnables;
 
     float m_maxProbability = 0;
     private Transform m_playerTransform;
@@ -20,12 +21,13 @@ public class EnemySpawn : MonoBehaviour
 
         m_playAreaCenter = AreaBoundaries.Instance.GetCenter();
         m_playAreaHalfWidth = AreaBoundaries.Instance.GetWidth() / 2;
-        foreach (Enemy e in m_enemies)
+        m_spawnables.Init();
+        /*foreach (Enemy e in m_enemies)
             m_maxProbability += e.probability;
-
+        */
     }
 
-
+    /*
     Enemy ChooseRandomEnemy()
     {
         float cumulFreq = 0;
@@ -38,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
             cumulFreq += e.probability;
         }
         return null;
-    }
+    }*/
 
     void SpawnOneEnemy()
     {
@@ -62,10 +64,10 @@ public class EnemySpawn : MonoBehaviour
 
         Vector3 pos = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * m_spawnDistance;
 
-        Enemy enemy = ChooseRandomEnemy();
+        GameObject enemy = m_spawnables.ChooseRandom();
 
         if (enemy != null)
-            Instantiate(enemy.gameObject, pos, Quaternion.identity);
+            Instantiate(enemy, pos, Quaternion.identity);
     }
 
     public void StartSpawn()

@@ -13,6 +13,35 @@ public struct Lootable
 public class LootOnDie : MonoBehaviour
 {
     [Range(0, 1)] public float probabilityToDrop;
+    [SerializeField] RandomSelector lootables;
+
+    float m_maxProbability = 0;
+
+    void Start()
+    {
+        Health health = GetComponent<Health>();
+
+        health.onDie += Loot;
+        lootables.Init();
+    }
+
+    void Loot()
+    {
+        float rand = UnityEngine.Random.Range(0f, 1f);
+        if (rand < probabilityToDrop)
+        {
+            GameObject loot = lootables.ChooseRandom();
+            if (loot != null)
+                Instantiate(loot, transform.position, Quaternion.identity);
+        }
+    }
+}
+
+
+/*
+public class LootOnDie : MonoBehaviour
+{
+    [Range(0, 1)] public float probabilityToDrop;
     public Lootable[] LootList;
 
     float m_maxProbability = 0;
@@ -50,4 +79,4 @@ public class LootOnDie : MonoBehaviour
                 Instantiate(loot, transform.position, Quaternion.identity);
         }
     }
-}
+}*/

@@ -43,10 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9785f9bf3d23aaa439b9955cf2137698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies:
-  - {fileID: 4919850945028286136, guid: 445481af0de3b8a44826a18af88b27c8, type: 3}
-  - {fileID: 7503092634170225430, guid: 3dc8c4b482e3afc47b79ebe662d1e987, type: 3}
-  - {fileID: 1063085141557470766, guid: efe50d36f7b94b84482ce92bf0a71117, type: 3}
-  AreaBondaries: {fileID: 0}
-  SpawnDistance: 100
-  SpawnFrequency: 2
+  m_spawnDistance: 100
+  m_spawnFrequency: 2
+  m_spawnables:
+    m_list:
+    - gameObject: {fileID: 109025779699621136, guid: 445481af0de3b8a44826a18af88b27c8,
+        type: 3}
+      probability: 1
+    - gameObject: {fileID: 769452217993440421, guid: 3dc8c4b482e3afc47b79ebe662d1e987,
+        type: 3}
+      probability: 0.5
+    - gameObject: {fileID: 8648377767034445095, guid: efe50d36f7b94b84482ce92bf0a71117,
+        type: 3}
+      probability: 0.1

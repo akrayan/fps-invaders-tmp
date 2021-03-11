@@ -109,16 +109,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   probabilityToDrop: 1
-  LootList:
-  - LootObject: {fileID: 5037013798345693572, guid: 663c94e3c6c189f4aafe58935de161e3,
-      type: 3}
-    probability: 0.5
-  - LootObject: {fileID: 8600035951520286542, guid: e864389230442804ab177ba836a541e1,
-      type: 3}
-    probability: 0.5
-  - LootObject: {fileID: 8523134683902157031, guid: 2617ad55f740f8c4bb402dc524caac63,
-      type: 3}
-    probability: 0.15
+  lootables:
+    m_list:
+    - gameObject: {fileID: 5037013798345693572, guid: 663c94e3c6c189f4aafe58935de161e3,
+        type: 3}
+      probability: 0.5
+    - gameObject: {fileID: 8600035951520286542, guid: e864389230442804ab177ba836a541e1,
+        type: 3}
+      probability: 0.5
+    - gameObject: {fileID: 8523134683902157031, guid: 2617ad55f740f8c4bb402dc524caac63,
+        type: 3}
+      probability: 0.15
 --- !u!114 &6619714517135004367
 MonoBehaviour:
   m_ObjectHideFlags: 0

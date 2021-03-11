@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private ParticleSystem m_deathParticle;
     [SerializeField] private float m_speed = 5;
     [SerializeField] private float m_damages = 5;
-    [SerializeField] [Min(0.01f)] float m_probability = 0.5f;
-    public float probability { get { return m_probability; } }
+    //[SerializeField] [Min(0.01f)] float m_probability = 0.5f;
+    //public float probability { get { return m_probability; } }
 
     private Transform m_playerTransform;
     private Health m_health;
