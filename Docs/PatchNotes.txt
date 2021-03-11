@@ -1,0 +1,15 @@
+==== V:1.0.1 ====
+
+** Changes **
+
+- The Spawn of Enemies is no longer dependant from the Player position
+- The player postion is update automatically at the start depending from the AreasBoundaries
+- Enemy and Bullet use a new class named HurtOnTouch to create damage on others Entities
+- There is now a new class UpgradeHandler whom handle all the upgrades and update the stat of the Weapon class,
+- The Weapons class will only handle the shoot and creation of a bullet
+
+** To Do **
+
+- Update the documentation (especialy on how to update UI)
+ 
+
