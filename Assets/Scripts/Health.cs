@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] public float maxHealth = 100;
+    [SerializeField] private float maxHealth = 100;
     public UnityAction<float> onDamaged;
     public UnityAction<float> onHealed;
     public UnityAction onDie;

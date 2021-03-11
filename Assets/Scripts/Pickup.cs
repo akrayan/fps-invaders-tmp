@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Pickup : MonoBehaviour
 {
-    float moveSpeed = 30;
+    [SerializeField] float m_moveSpeed = 30;
     public UnityAction<Transform> onPickedUp;
 
     private Transform m_playerTransform;
@@ -16,12 +16,11 @@ public class Pickup : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.LookAt(m_playerTransform);
 
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * m_moveSpeed * Time.deltaTime);
 
     }
 

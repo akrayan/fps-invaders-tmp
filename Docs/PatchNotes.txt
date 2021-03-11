@@ -12,5 +12,6 @@
 ** To Do **
 
 - Update the documentation (especialy on how to update UI)
+- Better implementation of movement
  
 

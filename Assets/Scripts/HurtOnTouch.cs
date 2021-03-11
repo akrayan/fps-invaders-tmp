@@ -22,7 +22,6 @@ public class HurtOnTouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("target : " + m_targetTag + "; other : " + other.tag);
         if (other.tag == m_targetTag)
         {
             InflictDamage(m_damages, other.gameObject);

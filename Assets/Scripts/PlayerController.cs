@@ -20,12 +20,6 @@ public class PlayerController : MonoBehaviour
         transform.position = AreaBoundaries.Instance.GetCenter();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void onDie()
     {
         GameFlowManager.Instance?.GameOver();
