@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
         m_movement = GetComponent<AircraftMovement>();
 
         m_health.onDie += onDie;
+
+        transform.position = AreaBoundaries.Instance.GetCenter();
     }
 
     // Update is called once per frame

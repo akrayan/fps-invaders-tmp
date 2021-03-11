@@ -18,6 +18,16 @@ public class AreaBoundaries : MonoBehaviour
     static AreaBoundaries m_instance = null;
     public static AreaBoundaries Instance { get { return m_instance; } }
 
+    public Vector3 GetCenter()
+    {
+        return new Vector3(m_minX + ((m_maxX - m_minX) / 2), 0, m_minZ);
+    }
+
+    public float GetWidth()
+    {
+        return m_maxX - m_minX;
+    }
+
     private void Awake()
     {
         if (m_instance == null)
