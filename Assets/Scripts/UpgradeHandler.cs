@@ -1,106 +1,32 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable]
-public struct WeaponsStats
+[RequireComponent(typeof(Weapons))]
+public class UpgradeHandler : MonoBehaviour
 {
-    public float coolDown;
-    public float bulletSpeed;
-    public float bulletDamages;
-
-    public WeaponsStats(float coolDown, float bulletSpeed, float bulletDamages)
-    {
-        this.coolDown = coolDown;
-        this.bulletSpeed = bulletSpeed;
-        this.bulletDamages = bulletDamages;
-    }
-}
-
-
-public class Weapons : MonoBehaviour
-{
-
-    [SerializeField] private Transform[] m_outPuts;
-    [SerializeField] private GameObject m_bulletPrefab;
-    [SerializeField] private WeaponsStats m_initialStats = new WeaponsStats(0.2f, 150, 5);
-
-    private WeaponsStats m_currentStats;
-    private float m_lastTimeShoot;
-
-    public void SetWeaponsStats(WeaponsStats stats)
-    {
-        m_currentStats = stats;
-    }
-
-    void Start()
-    {
-        m_lastTimeShoot = Time.time - m_currentStats.coolDown;
-    }
-
-    void Update()
-    {
-        if (m_lastTimeShoot + m_currentStats.coolDown < Time.time && Input.GetButton("Fire1"))
-            Shoot();
-    }
-
-    void Shoot()
-    {
-        foreach (Transform t in m_outPuts)
-        {
-            Bullet newBullet = Instantiate(m_bulletPrefab, t.position, Quaternion.LookRotation(t.forward)).GetComponent<Bullet>();
-            newBullet.Shoot(m_currentStats.bulletSpeed, m_currentStats.bulletDamages, "Enemy");
-        }
-        m_lastTimeShoot = Time.time;
-    }
-
-}
-
-
-/*
-public class Weapons : MonoBehaviour
-{
-
-    [SerializeField] private Transform[] m_outPuts;
-    [SerializeField] private GameObject m_bulletPrefab;
     [SerializeField] private WeaponsStats m_initialStats = new WeaponsStats(0.2f, 150, 5);
 
     public UnityAction onStatsChange;
 
+    private Weapons m_weapons;
     private WeaponsStats m_currentStats;
     private List<Upgrade> m_permanentUpgrades = new List<Upgrade>();
     private List<Upgrade> m_temporaryUpgrades = new List<Upgrade>();
 
-    private float m_lastTimeShoot;
-
-
-
     void Start()
     {
-        m_lastTimeShoot = Time.time - m_currentStats.coolDown;
         m_currentStats = m_initialStats;
+        m_weapons = GetComponent<Weapons>();
+        m_weapons.SetWeaponsStats(m_currentStats);
         onStatsChange?.Invoke();
     }
 
     void Update()
     {
-        if (m_lastTimeShoot + m_currentStats.coolDown < Time.time && Input.GetButton("Fire1"))
-            Shoot();
         CheckTemporaryUpgrades();
-    }
-
-    void Shoot()
-    {
-        foreach (Transform t in m_outPuts)
-        {
-            Bullet newBullet = Instantiate(m_bulletPrefab, t.position, Quaternion.LookRotation(t.forward)).GetComponent<Bullet>();
-            newBullet.Shoot(m_currentStats.bulletSpeed, m_currentStats.bulletDamages, "Enemy");
-
-        }
-        m_lastTimeShoot = Time.time;
     }
 
     void CheckTemporaryUpgrades()
@@ -159,6 +85,7 @@ public class Weapons : MonoBehaviour
         stats = CalculateStatsFromList(stats, m_permanentUpgrades);
         stats = CalculateStatsFromList(stats, m_temporaryUpgrades);
         m_currentStats = stats;
+        m_weapons.SetWeaponsStats(m_currentStats);
         onStatsChange?.Invoke();
 
     }
@@ -182,7 +109,7 @@ public class Weapons : MonoBehaviour
     {
         return m_currentStats;
     }
-    
+
     public ReadOnlyCollection<Upgrade> GetTemporaryUpgrades()
     {
         return m_temporaryUpgrades.AsReadOnly();
@@ -193,4 +120,3 @@ public class Weapons : MonoBehaviour
         return m_permanentUpgrades.AsReadOnly();
     }
 }
-*/

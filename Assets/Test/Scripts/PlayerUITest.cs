@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerUITest : MonoBehaviour
 {
     Transform m_playerTransform;
-    Weapons m_playerWeapons;
+    UpgradeHandler m_upgradeHandler;
 
     public Text UgLevel;
     public Text CoolDown;
@@ -18,15 +18,15 @@ public class PlayerUITest : MonoBehaviour
     void Start()
     {
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        m_playerWeapons = m_playerTransform.GetComponent<Weapons>();
-        m_playerWeapons.onStatsChange += UpdateUI;
+        m_upgradeHandler = m_playerTransform.GetComponent<UpgradeHandler>();
+        m_upgradeHandler.onStatsChange += UpdateUI;
 
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        WeaponsStats s = m_playerWeapons.GetCurrentStat();
+        WeaponsStats s = m_upgradeHandler.GetCurrentStat();
 
         UgLevel.text = "Upgrade level : " + level;
         CoolDown.text = "Cooldown : " + s.coolDown;
@@ -45,7 +45,7 @@ public class PlayerUITest : MonoBehaviour
             new Upgrade("firerate level 1", Formula.Percent, UpgradeType.FireRate, 10, false, 0),
             new Upgrade("speed level 1", Formula.Percent, UpgradeType.BulletSpeed, 10, false, 0)
         };
-        m_playerWeapons.UpgradeWeapons(upgrades);
+        m_upgradeHandler.UpgradeWeapons(upgrades);
     }
 
 }

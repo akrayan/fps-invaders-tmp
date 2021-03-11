@@ -14620,6 +14620,7 @@ GameObject:
   - component: {fileID: 1421274134034857837}
   - component: {fileID: 1421274134034857826}
   - component: {fileID: 1421274134034857824}
+  - component: {fileID: 7401704953376508609}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -14696,7 +14697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 120
   angleMax: 90
-  tilt: 15
+  tiltAngle: 15
 --- !u!114 &1421274134034857837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14734,15 +14735,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 623dfd39ce2b4a040b030edd855966ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OutPuts:
-  - {fileID: 7027690223808310044}
-  - {fileID: 7027690223066186562}
-  BulletPrefab: {fileID: 7868629604490018268, guid: e0f48e16ed35b8c4aba0b7b2334587e7,
-    type: 3}
-  InitialStats:
-    coolDown: 0.3
-    bulletSpeed: 50
-    bulletDamages: 1
+  m_outPuts: []
+  m_bulletPrefab: {fileID: 0}
+  m_initialStats:
+    coolDown: 0.2
+    bulletSpeed: 150
+    bulletDamages: 5
+--- !u!114 &7401704953376508609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203568713695749544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3dda40da21ff894bbe100409d0c47fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_initialStats:
+    coolDown: 0.2
+    bulletSpeed: 150
+    bulletDamages: 5
 --- !u!1 &8203568713695749546
 GameObject:
   m_ObjectHideFlags: 0

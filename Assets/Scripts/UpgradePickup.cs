@@ -17,9 +17,9 @@ public class UpgradePickup : MonoBehaviour
 
     void onPickedUp(Transform playerTransform)
     {
-        Weapons weapons = playerTransform.GetComponentInParent<Weapons>();
+        UpgradeHandler upgradeHandler = playerTransform.GetComponentInParent<UpgradeHandler>();
 
-        weapons?.UpgradeWeapons(m_upgradesList);
+        upgradeHandler?.UpgradeWeapons(m_upgradesList);
     }
 
 }
