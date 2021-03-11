@@ -1,4 +1,8 @@
-﻿# Documentation Générale
+# Documentation Générale
+
+## Sommaire
+
+[TOC]
 
 ## Comment fonctionne le système de probabilité ?
 Certaines fonctionnalités comme le Spawn d'un ennemi ou le loot d'un power up nécessitent une variable de probabilité et voici comment les utiliser. Pour ```EnemySpawn``` par exemple, vous avez une liste d'ennemis potentiels et la probabilité de spawn de chaque ennemi qui est définie dans le script ```Enemy```, la variable de probabilité est un simple float et la chance d'un ennemi de spawn sera égale à : la variable probabilité divisée par les sommes des variables probabilité de chaque ennemi de la liste, donc si dans la liste de ```EnemySpawn``` nous avons 2 ennemis avec {(Ennemi1 probabilité = 1), (Ennemi2 probabilité = 2)}, la chance de l'Ennemi1 de spawn sera de 1/3 et la chance de l'Ennemi2 sera de 2/3.

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This script manage a single pickup and allow the player to catch it, the pickup will move
+/// toward the player and call the onPickedUp event when it will touch the player, its use by
+/// UpgradePickup script
+/// </summary>
 public class Pickup : MonoBehaviour
 {
     [SerializeField] float m_moveSpeed = 30;

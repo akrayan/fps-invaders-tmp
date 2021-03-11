@@ -10,7 +10,7 @@ public enum UpgradeType { FireRate, BulletSpeed, BulletDamages };
 
 
 /// <summary>
-/// Test
+/// Its represent an Upgrade Object
 /// </summary>
 [Serializable]
 public class Upgrade //: ScriptableObject

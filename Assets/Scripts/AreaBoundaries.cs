@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Place one on the scene it will define the GameArea as in the GameDesign Document about
+/// Enemy Spawn, It will draw a cube but it will be visible only in the editor
+/// </summary>
 public class AreaBoundaries : MonoBehaviour
 {
     [SerializeField] private Color EditorColor = new Color(0, 160, 255, 120);

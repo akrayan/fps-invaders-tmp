@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This Script will makes randomly spawn enemies on the Spawn Area (check the document about Spawn)
+/// </summary>
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private float m_spawnDistance = 100;

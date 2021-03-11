@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Place it on the Main Camera, it will allow this camera to follow the player movement
+/// </summary>
 public class CameraFollowTarget : MonoBehaviour
 {
     private Transform m_playerTransform;

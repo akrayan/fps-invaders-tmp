@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This Script manage a list of selectable objet and their probatility ot's now used by
+/// EnemySpawn and LootonDie
+/// </summary>
 [Serializable]
 public struct Selectable
 {

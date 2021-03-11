@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Manage the upgrades and the stats of the Weapon
+/// </summary>
 [RequireComponent(typeof(Weapons))]
 public class UpgradeHandler : MonoBehaviour
 {

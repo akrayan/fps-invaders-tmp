@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// This script should help to manage all the script on the player, but for now it can only help to
+/// detect when the player die and trigger a gameover,
+/// edit: now it also place the player at a position on the AreaBoundaries
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
 

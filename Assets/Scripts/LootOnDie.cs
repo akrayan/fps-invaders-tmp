@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// This script allow the object to drop something when it die, the object should have a Health Script
+/// </summary>
 public class LootOnDie : MonoBehaviour
 {
     [Range(0, 1)] public float probabilityToDrop;

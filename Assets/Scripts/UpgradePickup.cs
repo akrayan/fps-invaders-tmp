@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// It can contains a list of upgrade that will be apply on Picked up, it require a pickup script
+/// </summary>
 [RequireComponent(typeof(Pickup))]
 public class UpgradePickup : MonoBehaviour
 {

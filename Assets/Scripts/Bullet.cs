@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Place it on the prefab of a bullet, it will be call by the weapon
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float m_lifeTime = 5f;

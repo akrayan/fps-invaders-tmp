@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Place It on an Enemy Prefab, this will allow to create an enemy capable to move toward
+/// player and inflict damage, also it require Health Script to handle the life of this enemy
+/// </summary>
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private ParticleSystem m_deathParticle;

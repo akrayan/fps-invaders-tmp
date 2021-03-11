@@ -1,4 +1,10 @@
-﻿# General Documentation
+# General Documentation
+
+## Summary
+
+[TOC]
+
+
 
 ## How does the probability system work ?
 Some features like the Spawn of an enemy or the loot of a power up require a probability variable and here is how to use them. For ``EnemySpawn`` for example, you have a list of potential enemies and the probability of spawning each enemy that is defined in the``Enemy`` script, the probability variable is a simple float and the chance of an enemy spawning will be equal to : the probability variable divided by the sums of probability variables of each enemy in the list, so if in the ``EnemySpawn`` list we have 2 enemies with {(Enemy1 probability = 1), (Enemy2 probability = 2)}, the chance of Enemy1 to spawn will be 1/3 and the chance of Enemy2 will be 2/3.

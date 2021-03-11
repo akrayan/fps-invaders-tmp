@@ -20,7 +20,9 @@ public struct WeaponsStats
     }
 }
 
-
+/// <summary>
+/// Handle the Weapons of the aircraft
+/// </summary>
 public class Weapons : MonoBehaviour
 {
 

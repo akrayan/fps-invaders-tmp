@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// This Script allows to make damages to other Entity
+/// </summary>
 public class HurtOnTouch : MonoBehaviour
 {
     [SerializeField] private string m_targetTag = "";

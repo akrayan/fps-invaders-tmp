@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This Script allows to take damage, its used by the playerController script and the Enemy Script
+/// </summary>
 public class Health : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100;
