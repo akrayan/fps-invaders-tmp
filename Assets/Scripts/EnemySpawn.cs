@@ -12,6 +12,7 @@ public class EnemySpawn : MonoBehaviour
 
     void Start()
     {
+        m_playAreaHalfWidth = AreaBoundaries.Instance.GetWidth() / 2;
         m_spawnables.Init();
     }
 
